@@ -9,7 +9,7 @@ interface ThemeGroup {
 
 export const light: Theme = {
   bgColor: "#fff",
-  fontColor: "#000",
+  fontColor: "black",
 };
 
 export const dark: Theme = {
