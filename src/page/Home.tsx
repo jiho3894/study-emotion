@@ -28,7 +28,7 @@ const Section = styled.section`
 `;
 
 const Home = () => {
-  const txt = "Front-End Developer Kim Jiho";
+  const txt = "Front-End developer Kim Jiho";
   const [Text, setText] = useState("");
   const [Count, setCount] = useState(0);
   useEffect(() => {
