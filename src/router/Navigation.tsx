@@ -1,23 +1,32 @@
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
+import { useRecoilState } from "recoil";
+import { themeState } from "../recoil/Darkmode";
 
 const Nav = styled.nav`
   width: 100%;
-  height: 40px;
-  background-color: green;
+  height: 4rem;
+  background-color: transparent;
   display: flex;
-  justify-content: space-around;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  justify-content: center;
+  gap: 10px;
   align-items: center;
 `;
 
 const Navigation = () => {
+  const [theme, DarkMode] = useRecoilState(themeState);
+  const onDarkMode = () => {
+    DarkMode((prev: boolean) => !prev);
+  };
   return (
     <Nav>
-      <a href="">깃허브</a>
       <Link to="/">Home</Link>
-      <Link to="/myInfo">myInfo</Link>
-      <div>Projects</div>
-      <div>Dark</div>
+      <span>projects</span>
+      <span onClick={onDarkMode}>{theme ? "Dark" : "Ligth"}</span>
     </Nav>
   );
 };

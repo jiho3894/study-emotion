@@ -8,12 +8,12 @@ interface ThemeGroup {
 }
 
 export const light: Theme = {
-  bgColor: "#fff",
+  bgColor: "#E7EBF2",
   fontColor: "black",
 };
 
 export const dark: Theme = {
-  bgColor: "#000",
+  bgColor: "#1C2632",
   fontColor: "white",
 };
 
