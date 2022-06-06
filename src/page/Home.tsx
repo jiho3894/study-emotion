@@ -26,6 +26,11 @@ const Section = styled.section`
   align-items: center;
 `;
 
+const Span = styled.span`
+  font-size: 60px;
+  font-weight: 600;
+`;
+
 const Home = () => {
   const txt = "Front-end developer Kim Jiho";
   const [Text, setText] = useState("");
@@ -48,7 +53,7 @@ const Home = () => {
           alt=""
         />
         <Section>
-          <span>{Text}</span>
+          <Span>{Text}</Span>
         </Section>
       </Container>
     </>
