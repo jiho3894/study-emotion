@@ -1,5 +1,8 @@
 import styled from "@emotion/styled";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
+import Profile from "../components/Profile";
+import BottomScroll from "../elements/BottomScroll";
+import IntroText from "../elements/IntroText";
 
 const Img = styled.img`
   width: 100%;
@@ -13,6 +16,9 @@ const Container = styled.main`
   background-color: #1c2632;
   position: relative;
   overflow-y: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Section = styled.section`
@@ -26,25 +32,10 @@ const Section = styled.section`
   align-items: center;
 `;
 
-const Span = styled.span`
-  font-size: 60px;
-  font-weight: 600;
-`;
-
 const Home = () => {
-  const txt = "Front-end developer Kim Jiho";
-  const [Text, setText] = useState("");
-  const [Count, setCount] = useState(0);
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setText(Text + txt[Count]);
-      setCount(Count + 1);
-    }, 100);
-    if (Count === txt.length) {
-      clearInterval(interval);
-    }
-    return () => clearInterval(interval);
-  });
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   return (
     <>
       <Container>
@@ -53,8 +44,12 @@ const Home = () => {
           alt=""
         />
         <Section>
-          <Span>{Text}</Span>
+          <IntroText />
+          <BottomScroll />
         </Section>
+      </Container>
+      <Container>
+        <Profile />
       </Container>
     </>
   );

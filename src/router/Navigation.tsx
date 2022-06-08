@@ -26,7 +26,6 @@ const Navigation = () => {
     <Nav>
       <Link to="/">Home</Link>
       <span>projects</span>
-      <span onClick={onDarkMode}>{theme ? "Dark" : "Ligth"}</span>
     </Nav>
   );
 };
