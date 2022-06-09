@@ -1,17 +1,27 @@
-import axios from "axios";
+import axios, { AxiosError, AxiosResponse } from "axios";
 import { useQuery } from "react-query";
 import { instance } from "../servers/axios";
 
 export interface Profile {
-  name: string;
-  image: string;
-  birth: string;
-  mbti: string;
-  introduce: string;
+  data: {
+    name: string;
+    image: string;
+    birth: string;
+    mbti: string;
+    introduce: string;
+  };
 }
 
 export const GetProfile = () => {
-  return useQuery("getProfile", () => {
-    return instance.get("/profile");
-  });
+  return useQuery<Profile, AxiosError, void>(
+    "getProfile",
+    () => {
+      return instance.get("/profile");
+    },
+    {
+      select: (data) => {
+        return data.data;
+      },
+    }
+  );
 };
